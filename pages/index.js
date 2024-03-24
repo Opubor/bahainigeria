@@ -13,7 +13,7 @@ export default function Home() {
   const [bg, setBg] = useState(false);
 
   const changeBackground = () => {
-    console.log(window.scrollY);
+    // console.log(window.scrollY);
     if (window.scrollY >= 550) {
       setBg(true);
     } else {
@@ -47,11 +47,11 @@ export default function Home() {
         >
           {/* ====navbar==== */}
           <nav
-            className={`w-full bg-gray-800 shadow fixed z-50 bg-white ${
+            className={`w-full shadow fixed z-50 bg-white ${
               bg ? "bg-white" : "bg-transparent"
             }`}
           >
-            <div className="justify-between px-8 mx-auto xl:max-w-7xl xl:items-center xl:flex md:px-8">
+            <div className="justify-between px-2 mx-auto xl:max-w-7xl xl:items-center xl:flex md:px-8">
               <div>
                 <div className="flex items-center justify-between py-3 md:py-5 xl:block">
                   <a
@@ -157,7 +157,7 @@ export default function Home() {
 
           {/* ====header-main==== */}
           <div className="flex justify-left xl:justify-between items-center gap-2 overflow-hidden">
-            <div className="h-screen pt-32 lg:pt-28 px-8 lg:pl-24 xl:px-44">
+            <div className="h-screen pt-32 lg:pt-28 px-2 lg:pl-24 xl:px-44">
               <div>
                 <h1 className="text-white text-2xl lg:text-4xl font-bold">
                   So powerful is the light <br></br> of unity that it can
@@ -217,7 +217,7 @@ export default function Home() {
         {/* ====about==== */}
         <div
           id="about"
-          className="bg-purple-100 flex flex-col lg:flex-row items-center justify-between px-8 lg:px-24 xl:px-44 py-12 gap-4"
+          className="bg-purple-100 flex flex-col lg:flex-row items-center justify-between px-2 lg:px-24 xl:px-44 py-12 gap-4"
         >
           <div>
             <h1 className="text-indigo-900 font-bold text-2xl lg:text-4xl">
@@ -264,7 +264,7 @@ export default function Home() {
         </div>
 
         {/* ====baha`i`-activities==== */}
-        <div id="activities" className="px-8 lg:px-24 xl:px-44 py-12">
+        <div id="activities" className="px-2 lg:px-24 xl:px-44 py-12">
           <div className="lg:grid grid-cols-2 gap-6">
             <div className="flex flex-col justify-center">
               <h1 className="text-2xl lg:text-4xl font-bold hidden lg:block">
@@ -327,7 +327,7 @@ export default function Home() {
         {/* ====baha`i`-writings==== */}
         <div
           id="teachings"
-          className="px-8 lg:px-24 xl:px-44 py-12"
+          className="px-2 lg:px-24 xl:px-44 py-12"
           style={{
             backgroundImage: "url(/aa.svg)",
             backgroundSize: "cover",
@@ -442,7 +442,7 @@ export default function Home() {
         {/* ===bahai-prayers=== */}
         <div
           id="prayers"
-          className=" px-8 lg:px-24 xl:px-44 py-12 border-t-2 border-t-blue-900 lg:border-t-0"
+          className="px-2 lg:px-24 xl:px-44 py-12 border-t-2 border-t-blue-900 lg:border-t-0"
           style={{
             // backgroundImage: "url(/dd.svg)",
             backgroundSize: "cover",
@@ -701,7 +701,7 @@ export default function Home() {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="px-8 lg:px-24 xl:px-44 py-12">
+          <div className="px-2 lg:px-24 xl:px-44 py-12">
             <h1 className="font-bold text-2xl lg:text-4xl text-center drop-shadow-lg font-serif text-white">
               THE GOLDEN RULE
             </h1>
@@ -875,7 +875,7 @@ export default function Home() {
         {/* ====contact-us==== */}
         <div
           id="contact"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:h-screen px-8 lg:px-24 xl:px-44 py-12"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:h-screen px-2 lg:px-24 xl:px-44 py-12"
         >
           {/* contact-form */}
           <div>

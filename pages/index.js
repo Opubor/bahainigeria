@@ -1,29 +1,30 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import styles from "@/styles/Home.module.css";
+import { PiHandsPrayingFill } from "react-icons/pi";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [navbar, setNavbar] = useState(false);
   const [bg, setBg] = useState(false);
 
   const changeBackground = () => {
-    console.log(window.scrollY)
+    console.log(window.scrollY);
     if (window.scrollY >= 550) {
-      setBg(true)
+      setBg(true);
     } else {
-      setBg(false)
+      setBg(false);
     }
-  }
+  };
 
   useEffect(() => {
-    changeBackground()
-    window.addEventListener("scroll", changeBackground)
-  })
+    changeBackground();
+    window.addEventListener("scroll", changeBackground);
+  });
 
   return (
     <>
@@ -36,250 +37,309 @@ export default function Home() {
       </Head>
       <main>
         {/* ====header==== */}
-      <div className=''  
-        style={{
-          backgroundImage: 'url(/updatedbg2.svg)',
-          backgroundSize: "cover",
-          backgroundRepeat:"no-repeat"
-        }}
-      >
-        {/* ====navbar==== */}
-        <nav className={`w-full bg-gray-800 shadow fixed z-50 bg-white ${bg ? "bg-white" : "bg-transparent"}`}>
-                <div className="justify-between px-8 mx-auto xl:max-w-7xl xl:items-center xl:flex md:px-8">
-                  <div>
-                    <div className="flex items-center justify-between py-3 md:py-5 xl:block">
-                      <a href="#" className='flex justify-between items-center gap-2'>
-                      <Image
-                        src="/PngItem_4219473.png"
-                        alt="Vercel Logo"
-                        className='w-8'
-                        height={20}
-                        width={500}
-                        priority
-                      />
-                        <h2 className={`text-xl xl:text-2xl font-bold ${bg ? "text-blue-900" : "text-white"}`}>Baha`i` Faith Nigeria</h2>
-                      </a>
-                      <div className="xl:hidden">
-                        <button
-                          className={`p-2 rounded-md outline-none focus:border-gray-400 focus:border ${bg ? "bg-blue-900" : "text-white"}`}
-                          onClick={() => setNavbar(!navbar)}
-                        >
-                          {navbar ? (
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="w-6 h-6 text-white"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          ) : (
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="w-6 h-6 text-white"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={2}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M4 6h16M4 12h16M4 18h16"
-                              />
-                            </svg>
-                          )}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div
-                      className={`flex-1 justify-self-center pb-3 mt-8 xl:block xl:pb-0 xl:mt-0 ${
-                        navbar ? 'block' : 'hidden'
+        <div
+          className=""
+          style={{
+            backgroundImage: "url(/updatedbg2.svg)",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          {/* ====navbar==== */}
+          <nav
+            className={`w-full bg-gray-800 shadow fixed z-50 bg-white ${
+              bg ? "bg-white" : "bg-transparent"
+            }`}
+          >
+            <div className="justify-between px-8 mx-auto xl:max-w-7xl xl:items-center xl:flex md:px-8">
+              <div>
+                <div className="flex items-center justify-between py-3 md:py-5 xl:block">
+                  <a
+                    href="#"
+                    className="flex justify-between items-center gap-2"
+                  >
+                    <Image
+                      src="/PngItem_4219473.png"
+                      alt="Vercel Logo"
+                      className="w-8"
+                      height={20}
+                      width={500}
+                      priority
+                    />
+                    <h2
+                      className={`text-xl xl:text-2xl font-bold ${
+                        bg ? "text-blue-900" : "text-white"
                       }`}
                     >
-                      <ul className={`items-center justify-center space-y-8 xl:flex xl:space-x-6 xl:space-y-0 ${bg ? "text-blue-900" : "text-white"}`}>
-                        <li className='hover:font-semibold'>
-                          <Link href="/">
-                            Home
-                          </Link>
-                        </li>
-                        <li className='hover:font-semibold'>
-                          <Link href="#about">
-                            About
-                          </Link>
-                        </li>
-                        <li className='hover:font-semibold'>
-                          <Link href="#activities">
-                          Baha`i` Activities
-                          </Link>
-                        </li>
-                        <li className='hover:font-semibold'>
-                          <Link href="#teachings">
-                          Baha`i` Teachings
-                          </Link>
-                        </li>
-                        <li className='hover:font-semibold'>
-                          <Link href="#prayers">
-                          Baha`i` Prayers
-                          </Link>
-                        </li>
-                        <li className='hover:font-semibold'>
-                          <Link href="#golden">
-                          Golden Rule
-                          </Link>
-                        </li>
-                        <li className='hover:font-semibold'>
-                          <Link href="#contact">
-                            Contact US
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
+                      Baha`i` Faith Nigeria
+                    </h2>
+                  </a>
+                  <div className="xl:hidden">
+                    <button
+                      className={`p-2 rounded-md outline-none focus:border-gray-400 focus:border ${
+                        bg ? "bg-blue-900" : "text-white"
+                      }`}
+                      onClick={() => setNavbar(!navbar)}
+                    >
+                      {navbar ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-6 h-6 text-white"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4 6h16M4 12h16M4 18h16"
+                          />
+                        </svg>
+                      )}
+                    </button>
                   </div>
                 </div>
-        </nav>
-
-        {/* ====header-main==== */}
-        <div className='flex justify-left xl:justify-between items-center gap-2 overflow-hidden'>
-          <div className='h-screen pt-32 lg:pt-28 px-8 lg:pl-24 xl:px-44'>
-              <div>
-                <h1 className='text-white text-2xl lg:text-4xl font-bold'>So powerful is the light <br></br> of unity that it can illuminate <br></br> the whole earth</h1>
-                <p className='text-white text-sm mb-6'>~Baha'u'llah~</p>
-                <a href='#teachings' className='py-2 px-2 lg:px-8 bg-white rounded-lg hover:text-blue-900 text-sm xl:text-lg lg:font-semibold hover:bg-blue-200'>Baha`i` Teachings</a>
-                
-                <p className='text-white text-sm xl:text-lg mt-6 lg:mt-24'>There is one God; mankind is one; the foundations of religion is one. <br></br>Let us worship him and give praise for all his great prophets and messengers who have <br></br> manifested his brightness and Glory</p>
-                <p className='text-white text-sm mb-4'>~Abdul-baha~</p>
               </div>
               <div>
-
+                <div
+                  className={`flex-1 justify-self-center pb-3 mt-8 xl:block xl:pb-0 xl:mt-0 ${
+                    navbar ? "block" : "hidden"
+                  }`}
+                >
+                  <ul
+                    className={`items-center justify-center space-y-8 xl:flex xl:space-x-6 xl:space-y-0 ${
+                      bg ? "text-blue-900" : "text-white"
+                    }`}
+                  >
+                    <li className="hover:font-semibold">
+                      <Link href="/">Home</Link>
+                    </li>
+                    <li className="hover:font-semibold">
+                      <Link href="#about">About</Link>
+                    </li>
+                    <li className="hover:font-semibold">
+                      <Link href="#activities">Baha`i` Activities</Link>
+                    </li>
+                    <li className="hover:font-semibold">
+                      <Link href="#teachings">Baha`i` Teachings</Link>
+                    </li>
+                    <li className="hover:font-semibold">
+                      <Link href="#prayers">Baha`i` Prayers</Link>
+                    </li>
+                    <li className="hover:font-semibold">
+                      <Link href="#golden">Golden Rule</Link>
+                    </li>
+                    <li className="hover:font-semibold">
+                      <Link href="/gallery">Gallery</Link>
+                    </li>
+                    <li className="hover:font-semibold">
+                      <Link href="#contact">Contact US</Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
-          </div>
-          <div className='pt-12'>
-          {/* <div className='pt-12 hidden xl:block'> */}
-            <Image
-              src="/9602b524-17b4-4a15-9d3a-789905088965.jpg"
-              // src="/Screenshot 2023-03-09 163914.jpg"
-              alt="Vercel Logo"
-              className="hidden lg:block xl:-translate-x-44"
-              width={400}
-              height={24}
-              priority
-            />
-            <Image
-              src="/84b374eb-496f-495f-a643-f3b44a4d4899.jpg"
-              // src="/Screenshot 2023-03-09 164156.jpg"
-              alt="Vercel Logo"
-              className="hidden lg:block lg:translate-x-8 lg:translate-y-12 xl:translate-y-0 xl:translate-x-0 py-4"
-              width={400}
-              height={24}
-              priority
-            />
-            <Image
-              src="/01454820-a3d1-48b9-b471-77b0ebe275b3.jpg"
-              // src="/Screenshot 2023-03-09 164128.jpg"
-              alt="Vercel Logo"
-              className="hidden xl:block -translate-x-96 -translate-y-16"
-              width={400}
-              height={24}
-              priority
-            />
+            </div>
+          </nav>
+
+          {/* ====header-main==== */}
+          <div className="flex justify-left xl:justify-between items-center gap-2 overflow-hidden">
+            <div className="h-screen pt-32 lg:pt-28 px-8 lg:pl-24 xl:px-44">
+              <div>
+                <h1 className="text-white text-2xl lg:text-4xl font-bold">
+                  So powerful is the light <br></br> of unity that it can
+                  illuminate <br></br> the whole earth
+                </h1>
+                <p className="text-white text-sm mb-6">~Baha'u'llah~</p>
+                <a
+                  href="#teachings"
+                  className="py-2 px-2 lg:px-8 bg-white rounded-lg hover:text-blue-900 text-sm xl:text-lg lg:font-semibold hover:bg-blue-200"
+                >
+                  Baha`i` Teachings
+                </a>
+
+                <p className="text-white text-sm xl:text-lg mt-6 lg:mt-24">
+                  There is one God; mankind is one; the foundations of religion
+                  is one. <br></br>Let us worship him and give praise for all
+                  his great prophets and messengers who have <br></br>{" "}
+                  manifested his brightness and Glory
+                </p>
+                <p className="text-white text-sm mb-4">~Abdul-baha~</p>
+              </div>
+              <div></div>
+            </div>
+            <div className="pt-12">
+              {/* <div className='pt-12 hidden xl:block'> */}
+              <Image
+                src="/9602b524-17b4-4a15-9d3a-789905088965.jpg"
+                // src="/Screenshot 2023-03-09 163914.jpg"
+                alt="Vercel Logo"
+                className="hidden lg:block xl:-translate-x-44"
+                width={400}
+                height={24}
+                priority
+              />
+              <Image
+                src="/84b374eb-496f-495f-a643-f3b44a4d4899.jpg"
+                // src="/Screenshot 2023-03-09 164156.jpg"
+                alt="Vercel Logo"
+                className="hidden lg:block lg:translate-x-8 lg:translate-y-12 xl:translate-y-0 xl:translate-x-0 py-4"
+                width={400}
+                height={24}
+                priority
+              />
+              <Image
+                src="/01454820-a3d1-48b9-b471-77b0ebe275b3.jpg"
+                // src="/Screenshot 2023-03-09 164128.jpg"
+                alt="Vercel Logo"
+                className="hidden xl:block -translate-x-96 -translate-y-16"
+                width={400}
+                height={24}
+                priority
+              />
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* ====about==== */}
-      <div id='about' className='bg-blue-50 flex flex-col lg:flex-row items-center justify-between px-8 lg:px-24 xl:px-44 py-12 gap-4' >
-        <div>
-          <h1 className='text-indigo-900 font-bold text-2xl lg:text-4xl'>The Baha`i`s of Nigeria</h1>
-          <p className='font-semibold text-sm lg:text-lg'>~Working together to bring about a better society~</p>
+        {/* ====about==== */}
+        <div
+          id="about"
+          className="bg-purple-100 flex flex-col lg:flex-row items-center justify-between px-8 lg:px-24 xl:px-44 py-12 gap-4"
+        >
+          <div>
+            <h1 className="text-indigo-900 font-bold text-2xl lg:text-4xl">
+              The Baha`i`s of Nigeria
+            </h1>
+            <p className="font-semibold text-sm lg:text-lg">
+              ~Working together to bring about a better society~
+            </p>
 
-          <p className='mt-4 text-sm lg:text-base'>The Bahá’í Faith was first established in Nigeria in the 1940s. Since that time, increasing numbers of people throughout the country have been finding inspiration and guidance in the teachings of Bahá’u’lláh. Here, members of the Bahá’í community are working together with their neighbors and friends to promote and contribute to the well-being and progress of society. In urban centres and rural villages, in homes and schools, citizens of all backgrounds, classes and ages are participating in a dynamic pattern of life, taking part in activities which are, at once, spiritual, social and educational.</p>
+            <p className="mt-4 text-sm lg:text-base">
+              The Bahá’í Faith was first established in Nigeria in the 1940s.
+              Since that time, increasing numbers of people throughout the
+              country have been finding inspiration and guidance in the
+              teachings of Bahá’u’lláh. Here, members of the Bahá’í community
+              are working together with their neighbors and friends to promote
+              and contribute to the well-being and progress of society. In urban
+              centres and rural villages, in homes and schools, citizens of all
+              backgrounds, classes and ages are participating in a dynamic
+              pattern of life, taking part in activities which are, at once,
+              spiritual, social and educational.
+            </p>
 
-          <p className='mt-4 text-sm lg:text-base'>Many community building activities that address society’s needs in both their spiritual and material dimensions are underway in Nigeria. Among the principles that inspire them are the oneness of humanity, the need for universal education and the elimination of all forms of prejudice. In Nigeria, the Bahá’ís and their growing numbers of friends offer opportunities to study and reflect upon spiritual topics, arrange meetings for communal worship, and provide classes for children and youth, emphasizing moral education.</p>
-        </div>
-        <div className='hidden xl:block'>
-          <Image
+            <p className="mt-4 text-sm lg:text-base">
+              Many community building activities that address society’s needs in
+              both their spiritual and material dimensions are underway in
+              Nigeria. Among the principles that inspire them are the oneness of
+              humanity, the need for universal education and the elimination of
+              all forms of prejudice. In Nigeria, the Bahá’ís and their growing
+              numbers of friends offer opportunities to study and reflect upon
+              spiritual topics, arrange meetings for communal worship, and
+              provide classes for children and youth, emphasizing moral
+              education.
+            </p>
+          </div>
+          <div className="hidden xl:block">
+            <Image
               src="/PngItem_4356876.png"
               alt="Vercel Logo"
               width={2500}
               height={24}
               priority
-          />
-        </div>
-      </div>
-
-      {/* ====baha`i`-activities==== */}
-      <div id='activities' className='px-8 lg:px-24 xl:px-44 py-12'>
-        <div className='lg:grid grid-cols-2 gap-6'>
-          <div className='flex flex-col justify-center'>
-            <h1 className='text-2xl lg:text-4xl font-bold hidden lg:block'>BAHA`I` ACTIVITIES <br></br> ACROSS THE COUNTRY</h1>
-            <h1 className='text-2xl lg:text-4xl font-bold lg:hidden'>BAHA`I` ACTIVITIES ACROSS THE COUNTRY</h1>
-            <p className='lg:font-semibold text-sm lg:text-base'>You're welcome to join us in creating positive change in our society</p>
-            <Image
-              src="/01454820-a3d1-48b9-b471-77b0ebe275b3.jpg"
-              alt="Vercel Logo"
-              className='mt-6'
-              width={600}
-              height={20}
-              priority
-            />
-            <Image
-              src="/67d2216d-0638-4038-a206-c5cdf3dcdc28.jpg"
-              alt="Vercel Logo"
-              className='mt-6'
-              width={600}
-              height={20}
-              priority
-            />
-          </div>
-
-          <div className='flex flex-col items-right gap-6 mt-6 lg:mt-0'>
-            <Image
-              src="/9602b524-17b4-4a15-9d3a-789905088965.jpg"
-              alt="Vercel Logo"
-              width={600}
-              height={24}
-              priority
-            />
-            <Image
-              src="/84b374eb-496f-495f-a643-f3b44a4d4899.jpg"
-              alt="Vercel Logo"
-              width={600}
-              height={24}
-              priority
             />
           </div>
         </div>
-        <div className='mt-6'>
-          <Image
+
+        {/* ====baha`i`-activities==== */}
+        <div id="activities" className="px-8 lg:px-24 xl:px-44 py-12">
+          <div className="lg:grid grid-cols-2 gap-6">
+            <div className="flex flex-col justify-center">
+              <h1 className="text-2xl lg:text-4xl font-bold hidden lg:block">
+                BAHA`I` ACTIVITIES <br></br> ACROSS THE COUNTRY
+              </h1>
+              <h1 className="text-2xl lg:text-4xl font-bold lg:hidden">
+                BAHA`I` ACTIVITIES ACROSS THE COUNTRY
+              </h1>
+              <p className="lg:font-semibold text-sm lg:text-base">
+                You're welcome to join us in creating positive change in our
+                society
+              </p>
+              <Image
+                src="/01454820-a3d1-48b9-b471-77b0ebe275b3.jpg"
+                alt="Vercel Logo"
+                className="mt-6"
+                width={600}
+                height={20}
+                priority
+              />
+              <Image
+                src="/67d2216d-0638-4038-a206-c5cdf3dcdc28.jpg"
+                alt="Vercel Logo"
+                className="mt-6"
+                width={600}
+                height={20}
+                priority
+              />
+            </div>
+
+            <div className="flex flex-col items-right gap-6 mt-6 lg:mt-0">
+              <Image
+                src="/9602b524-17b4-4a15-9d3a-789905088965.jpg"
+                alt="Vercel Logo"
+                width={600}
+                height={24}
+                priority
+              />
+              <Image
+                src="/84b374eb-496f-495f-a643-f3b44a4d4899.jpg"
+                alt="Vercel Logo"
+                width={600}
+                height={24}
+                priority
+              />
+            </div>
+          </div>
+          <div className="mt-6">
+            <Image
               src="/Screenshot 2023-03-03 192122.jpg"
               alt="Vercel Logo"
-              className='w-full'
+              className="w-full"
               height={20}
               width={1000}
               priority
-          />
+            />
+          </div>
         </div>
-      </div>
 
-      {/* ====baha`i`-writings==== */}
-      <div id='teachings' className='px-8 lg:px-24 xl:px-44 py-12'
-        style={{
-          backgroundImage: 'url(/aa.svg)',
-          backgroundSize: "cover",
-          backgroundRepeat:"no-repeat"
-        }} 
+        {/* ====baha`i`-writings==== */}
+        <div
+          id="teachings"
+          className="px-8 lg:px-24 xl:px-44 py-12"
+          style={{
+            backgroundImage: "url(/aa.svg)",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
         >
-        <h1 className="font-bold text-2xl lg:text-4xl text-center">BAHA`I` WRITINGS</h1>
-        <div className='flex gap-4 mt-4'>
-          {/* <p className='font-semibold'>Tags: </p> */}
-          {/* <div className='hidden lg:grid grid-cols-4 lg:grid-cols-7 gap-2 w-full'>
+          <h1 className="font-bold text-2xl lg:text-4xl text-center font-serif">
+            BAHA`I` <span className="text-purple-700">WRITINGS</span>
+          </h1>
+          <div className="flex gap-4 mt-4">
+            {/* <p className='font-semibold'>Tags: </p> */}
+            {/* <div className='hidden lg:grid grid-cols-4 lg:grid-cols-7 gap-2 w-full'>
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Unity</p>
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Forgiveness</p>
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Faith</p>
@@ -288,8 +348,8 @@ export default function Home() {
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Justice</p>
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Education</p>
           </div> */}
-        </div>
-        {/* <div className='hidden lg:grid grid-cols-4 lg:grid-cols-6 gap-2 mt-2 lg:px-32 w-full'>
+          </div>
+          {/* <div className='hidden lg:grid grid-cols-4 lg:grid-cols-6 gap-2 mt-2 lg:px-32 w-full'>
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Service</p>
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Youth</p>
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Consultation</p>
@@ -298,69 +358,111 @@ export default function Home() {
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Patience</p>
         </div> */}
 
-        <div className='grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4'>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-yellow-200 duration-300'>
-              <h1 className='font-bold text-lg'>O SON OF MAN!</h1>              
-              <p className='text-sm lg:text-base'>Breathe not the sins of others so long as thou art thyself a sinner. Shouldst thou transgress this command, accursed wouldst thou be, to this I bear witness.</p>
-              <p className='text-sm font-bold'>~Baha’u’llah~</p>
-          </div>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-red-200 duration-300'>
-              <h1 className='font-bold text-lg'>O SON OF DUST!</h1>  
-              <p className='text-sm lg:text-base'>The best of men are they that earn a livelihood by their calling and spend upon themselves and upon their kindred for the love of God, the Lord of all worlds.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4">
+            <div className="bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-yellow-200 duration-300">
+              <h1 className="font-bold text-lg">O SON OF MAN!</h1>
+              <p className="text-sm lg:text-base">
+                Breathe not the sins of others so long as thou art thyself a
+                sinner. Shouldst thou transgress this command, accursed wouldst
+                thou be, to this I bear witness.
+              </p>
+              <p className="text-sm font-bold">~Baha’u’llah~</p>
+            </div>
+            <div className="bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-red-200 duration-300">
+              <h1 className="font-bold text-lg">O SON OF DUST!</h1>
+              <p className="text-sm lg:text-base">
+                The best of men are they that earn a livelihood by their calling
+                and spend upon themselves and upon their kindred for the love of
+                God, the Lord of all worlds.
+              </p>
               {/* <p>Verily I say unto thee the most negligent of all men is he that disputeth idly and seeketh to advance himself over his brother. Say, O brethren! Let deeds, not words be your adorning.</p>  */}
               {/* <p>In the garden of thy heart plant naught but the rose of love, and from the nightingale of affection loosen not thy hold. Treasue the companionship of the righteous and eshew all fellowship with the ungodly.</p>            */}
-              <p className='text-sm font-bold'>~Baha’u’llah~</p>
+              <p className="text-sm font-bold">~Baha’u’llah~</p>
+            </div>
+            <div className="bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-blue-200 duration-300">
+              <h1 className="font-bold text-lg">O MAN OF TWO VISIONS!</h1>
+              <p className="text-sm lg:text-base">
+                Close one eye and open the other. Close one to the world and all
+                that is therein, and open the other to the hallowed beauty of
+                the beloved.
+              </p>
+              <p className="text-sm font-bold">~Baha’u’llah~</p>
+            </div>
           </div>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-blue-200 duration-300'>
-              <h1 className='font-bold text-lg'>O MAN OF TWO VISIONS!</h1>   
-              <p className='text-sm lg:text-base'>Close one eye and open the other. Close one to the world and all that is therein, and open the other to the hallowed beauty of the beloved.</p>
-              <p className='text-sm font-bold'>~Baha’u’llah~</p>
-          </div>
-        </div>
 
-        <div className='grid grid-cols-1 lg:grid-cols-2 mt-6 gap-4 lg:px-40 xl:px-52'>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-purple-200 duration-300'>
+          <div className="grid grid-cols-1 lg:grid-cols-2 mt-6 gap-4 lg:px-40 xl:px-52">
+            <div className="bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-purple-200 duration-300">
               {/* <h1 className='font-bold text-lg'>O SON OF MAN!</h1>               */}
-              <p className='text-sm lg:text-base'>Do not be content with showing friendship in words alone, let your heart burn with loving kindness for all who may cross your path.</p>
-              <p className='text-sm font-bold'>~Baha’u’llah~</p>
-          </div>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-green-200 duration-300'>
-            <p className='text-sm lg:text-base'>The betterment of this world can be accomplished through pure and goodly deeds through commendable seemly conduct.</p>
+              <p className="text-sm lg:text-base">
+                Do not be content with showing friendship in words alone, let
+                your heart burn with loving kindness for all who may cross your
+                path.
+              </p>
+              <p className="text-sm font-bold">~Baha’u’llah~</p>
+            </div>
+            <div className="bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-green-200 duration-300">
+              <p className="text-sm lg:text-base">
+                The betterment of this world can be accomplished through pure
+                and goodly deeds through commendable seemly conduct.
+              </p>
               {/* <p>That one is indeed is a man who, today, dedicateth himself to the service of the entire human race. The Great Being saith: Blessed is he that ariseth to promote the best interests of the peoples and kindreds of the earth. It is not for him to pride himself who loveth his country, but rather for him who loveth the whole world. The earth is but one country, and mankind its citizens.</p> */}
-              <p className='text-sm font-bold'>~Baha’u’llah~</p>
+              <p className="text-sm font-bold">~Baha’u’llah~</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4">
+            <div className="bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-blue-200 duration-300">
+              <p className="text-sm lg:text-base">
+                Beautify your tongues , O people with truthfulness, and adorn
+                your souls with the ornament of honesty. Beware, O people, that
+                ye deal not treacherously with any one.
+              </p>
+              <p className="text-sm font-bold">~Baha’u’llah~</p>
+            </div>
+            <div className="bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-red-200 duration-300">
+              <p className="text-sm lg:text-base">
+                A kindly tongue is the lodestone of the hearts of men. It is the
+                bread of the spirit, it clotheth the words with meaning, it is
+                the fountain of the light of wisdom and understanding.
+              </p>
+              <p className="text-sm font-bold">~Baha’u’llah~</p>
+            </div>
+            <div className="bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-yellow-200 duration-300">
+              <p className="text-sm lg:text-base">
+                Deal ye with one another with the utmost love and harmony, with
+                friendliness and fellowship... This goal excelleth every other
+                goal, and this aspiration is the monarch of all aspirations.
+              </p>
+              {/* <p>Fear God, and be not of those who are shut out as by a veil. Burn ye away the veils with the fire of my love, and dispel ye the mists of vain imaginings by the power of this name through which  we have subdued the entire creation.</p> */}
+              <p className="text-sm font-bold">~Baha’u’llah~</p>
+            </div>
           </div>
         </div>
 
-        <div className='grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4'>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-blue-200 duration-300'>
-            <p className='text-sm lg:text-base'>Beautify your tongues , O people with truthfulness, and adorn your souls with the ornament of honesty. Beware, O people, that ye deal not treacherously with any one.</p>
-            <p className='text-sm font-bold'>~Baha’u’llah~</p>
-          </div>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-red-200 duration-300'>
-            <p className='text-sm lg:text-base'>A kindly tongue is the lodestone of the hearts of men. It is the bread of the spirit, it clotheth the words with meaning, it is the fountain of the light of wisdom and understanding.</p>
-            <p className='text-sm font-bold'>~Baha’u’llah~</p>
-          </div>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-yellow-200 duration-300'>
-            <p className='text-sm lg:text-base'>Deal ye with one another with the utmost love and harmony, with friendliness and fellowship... This goal excelleth every other goal, and this aspiration is the monarch of all aspirations.</p>
-            {/* <p>Fear God, and be not of those who are shut out as by a veil. Burn ye away the veils with the fire of my love, and dispel ye the mists of vain imaginings by the power of this name through which  we have subdued the entire creation.</p> */}
-            <p className='text-sm font-bold'>~Baha’u’llah~</p>
-          </div>
-        </div>
-      </div>
-
-      
-      {/* ===bahai-prayers=== */}
-      <div id='prayers' className='bg-blue-50 px-8 lg:px-24 xl:px-44 py-12 border-t-2 border-t-blue-900 lg:border-t-0'
-        style={{
-          backgroundImage: 'url(/dd.svg)',
-          backgroundSize: "cover",
-          backgroundRepeat:"no-repeat"
-        }} 
+        {/* ===bahai-prayers=== */}
+        <div
+          id="prayers"
+          className=" px-8 lg:px-24 xl:px-44 py-12 border-t-2 border-t-blue-900 lg:border-t-0"
+          style={{
+            // backgroundImage: "url(/dd.svg)",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
         >
-        <h1 className="font-bold text-2xl lg:text-4xl text-center">BAHA`I` PRAYERS</h1>
-        <p className='text-center text-sm lg:text-base'>The most acceptable prayer is the one offered with the utmost spirituality and radiance, its prolongation hath not been and is not beloved by God.</p>
-        <p className='text-center text-sm lg:text-base'>The more detached and purer the prayer, the more acceptable it is in the presence of God. <span className='font-semibold'>~The Bab~</span></p>
-        {/* <div className='flex gap-4 mt-4'>
+          <h1 className="font-bold text-2xl lg:text-4xl text-center font-serif">
+            BAHA`I` <span className="text-purple-700">PRAYERS</span>
+          </h1>
+          <p className="text-center text-sm lg:text-base font-serif">
+            The most acceptable prayer is the one offered with the utmost
+            spirituality and radiance, its prolongation hath not been and is not
+            beloved by God.
+          </p>
+          <p className="text-center text-sm lg:text-base font-serif">
+            The more detached and purer the prayer, the more acceptable it is in
+            the presence of God.{" "}
+            <span className="font-semibold">~The Bab~</span>
+          </p>
+          {/* <div className='flex gap-4 mt-4'>
           <p className='font-semibold'>Tags: </p>
           <div className='hidden lg:grid grid-cols-4 lg:grid-cols-7 gap-2 w-full'>
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Unity</p>
@@ -381,421 +483,668 @@ export default function Home() {
               <p className='text-center bg-white shadow-lg shadow-slate-300 hover:bg-blue-900 hover:text-white duration-300'>Patience</p>
         </div> */}
 
-        <div className='grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4'>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-yellow-200 duration-300'>
-            <p className='text-sm lg:text-base'>I have risen this morning by Thy grace, O my God, and left my home trusting wholly in Thee, and committing myself to Thy care. Send down, then, upon me, out of the heaven of Thy mercy, a blessing from Thy side, and enable me to return home in safety even as Thou didst allow me to set out under Thy protection with my thoughts fixed steadfastly upon Thee.<br></br>There is none other God but Thee, the One, the Incomparable, the All-Knowing, the All-wise.</p>
-            <p className='text-sm font-bold'>~Baha’u’llah~</p>             
+          <div className="grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4">
+            <div className="bg-white rounded-2xl p-4 shadow-md shadow-gray-300">
+              <div className="bg-white shadow-md shadow-gray-300 rounded-2xl h-full p-4">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/PngItem_4219473.png"
+                    alt="Vercel Logo"
+                    className="w-12 py-2"
+                    height={20}
+                    width={500}
+                    priority
+                  />
+                </div>
+                <p className="text-sm mb-2">
+                  I have risen this morning by Thy grace, O my God, and left my
+                  home trusting wholly in Thee, and committing myself to Thy
+                  care. Send down, then, upon me, out of the heaven of Thy
+                  mercy, a blessing from Thy side, and enable me to return home
+                  in safety even as Thou didst allow me to set out under Thy
+                  protection with my thoughts fixed steadfastly upon Thee.
+                  <br></br>There is none other God but Thee, the One, the
+                  Incomparable, the All-Knowing, the All-wise.
+                </p>
+                <p className="text-sm font-bold">~Baha’u’llah~</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-4 shadow-md shadow-gray-300">
+              <div className="bg-white shadow-md shadow-gray-300 rounded-2xl h-full p-4">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/PngItem_4219473.png"
+                    alt="Vercel Logo"
+                    className="w-12 py-2"
+                    height={20}
+                    width={500}
+                    priority
+                  />
+                </div>
+                <p className="text-sm mb-2">
+                  O my God, the God of bounty and mercy!<br></br>Thou art that
+                  King whose commanding word the whole creation hath been called
+                  into being; and Thou art that All-Bountiful One the doings of
+                  Whose servants have never hindered Him from showing forth His
+                  grace, nor have they frustrated the revelations of His bounty.
+                  <br></br> Suffer this servant, I beseech Thee, to attain unto
+                  that which is the cause of his salvation in every world of Thy
+                  worlds. Thou art, verily, the Almighty, the Most Powerful, the
+                  All-Knowing, the All-Wise.
+                </p>
+                <p className="text-sm font-bold">~Baha’u’llah~</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-4 shadow-md shadow-gray-300">
+              <div className="bg-white shadow-md shadow-gray-300 rounded-2xl h-full p-4">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/PngItem_4219473.png"
+                    alt="Vercel Logo"
+                    className="w-12 py-2"
+                    height={20}
+                    width={500}
+                    priority
+                  />
+                </div>
+                <p className="text-sm mb-2">
+                  O my God! O my God! Unite the hearts of Thy servants, and
+                  reveal to them Thy great purpose. May they folow Thy
+                  commandments and abide in Thy law. Help them, O God, in their
+                  endeavor, and grant them strength to serve Thee. O God! Leave
+                  them not to themselves, but guide their steps by the light of
+                  Thy knowledge, and cheer their hearts by Thy love. Verily,
+                  Thou art their Helper and their Lord.
+                </p>
+                <p className="text-sm font-bold">~Baha’u’llah~</p>
+              </div>
+            </div>
           </div>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-red-200 duration-300'>
-            <p className='text-sm lg:text-base'>O my God, the God of bounty and mercy!<br></br>Thou art that King whose commanding word the whole creation hath been called into being; and Thou art that All-Bountiful One the doings of Whose servants have never hindered Him from showing forth His grace, nor have they frustrated the revelations of His bounty.<br></br> Suffer this servant, I beseech Thee, to attain unto that which is the cause of his salvation in every world of Thy worlds. Thou art, verily, the Almighty, the Most Powerful, the All-Knowing, the All-Wise.
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 mt-6 gap-4 lg:px-40 xl:px-52">
+            <div className="bg-white rounded-2xl p-4 shadow-md shadow-gray-300">
+              <div className="bg-white shadow-md shadow-gray-300 rounded-2xl h-full p-4">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/PngItem_4219473.png"
+                    alt="Vercel Logo"
+                    className="w-12 py-2"
+                    height={20}
+                    width={500}
+                    priority
+                  />
+                </div>
+                <p className="text-sm mb-2">
+                  Thy Name is my healing, O my God, and remembrance of Thee is
+                  my remedy. Nearness to Thee is my hope, and love for Thee is
+                  my companion. Thy mercy to me is my healing and my succor in
+                  both this world and the world to come. Thou Verily, art the
+                  All-Bountiful, the All-Knowing, the All-Wise.
+                </p>
+                <p className="text-sm font-bold">~Baha’u’llah~</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-4 shadow-md shadow-gray-300">
+              <div className="bg-white shadow-md shadow-gray-300 rounded-2xl h-full p-4">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/PngItem_4219473.png"
+                    alt="Vercel Logo"
+                    className="w-12 py-2"
+                    height={20}
+                    width={500}
+                    priority
+                  />
+                </div>
+                <p className="text-sm mb-2">
+                  I adjure Thee by Thy might, Omy God! Let no harm beset me in
+                  times of tests, and in moments of heedlessness, guide my steps
+                  aright through Thine inspiration. Thou art God, potent art
+                  thou to do what Thou desirest. No one can withstand Thy will
+                  of thwart Thy Purpose.
+                </p>
+                <p className="text-sm font-bold">~The Bab~</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4">
+            <div className="bg-white rounded-2xl p-4 shadow-md shadow-gray-300">
+              <div className="bg-white shadow-md shadow-gray-300 rounded-2xl h-full p-4">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/PngItem_4219473.png"
+                    alt="Vercel Logo"
+                    className="w-12 py-2"
+                    height={20}
+                    width={500}
+                    priority
+                  />
+                </div>
+                <p className="text-sm mb-2">
+                  I beg Thee to forgive me, O my Lord, for every mention but the
+                  mention of Thee, and for every praise but the praise of Thee,
+                  and for every delight but delight in Thy nearness, and for
+                  every pleasure but the pleasure of communion with Thee, and
+                  for every joy but the joy of Thy love and Thy good-pleasure,
+                  and for all things pertaining unto me which bear no
+                  relationship unto Thee, O Thou Who art the Lord of lords, He
+                  Who provideth the means and unlocketh the doors.
+                </p>
+                <p className="text-sm font-bold">~The Bab~</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-4 shadow-md shadow-gray-300">
+              <div className="bg-white shadow-md shadow-gray-300 rounded-2xl h-full p-4">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/PngItem_4219473.png"
+                    alt="Vercel Logo"
+                    className="w-12 py-2"
+                    height={20}
+                    width={500}
+                    priority
+                  />
+                </div>
+                <p className="text-sm mb-2">
+                  O Lord my God! Assist Thy loved ones to be firm in Thy Faith,
+                  to walk in Thy ways, to be steadfast in Thy Cause. Give them
+                  Thy grace to withstand the onslaught of self and passion, to
+                  follow the light of divine guidiane. Thou art the Powerful,
+                  the Gracious, the Self-Subsisting, the Bestower, the
+                  Compassionate, the Almighty, the All-Bountiful.
+                </p>
+                <p className="text-sm font-bold">~Abdu’l-Baha~</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-4 shadow-md shadow-gray-300">
+              <div className="bg-white shadow-md shadow-gray-300 rounded-2xl h-full p-4">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/PngItem_4219473.png"
+                    alt="Vercel Logo"
+                    className="w-12 py-2"
+                    height={20}
+                    width={500}
+                    priority
+                  />
+                </div>
+                <p className="text-sm mb-2">
+                  O God! Refresh and gladden my spirit. Purify my heart.
+                  Illumine my powers. I lay all my affairs in thy hand. Thou art
+                  my Guide and my Refuge. I will no longer be sorrowful and
+                  grieved; I will be a happy and joyful being. O God! I will no
+                  longer be full of anxiety, nor will I let trouble harass me. I
+                  will be not dwell on the unpleasant things of life.<br></br>O
+                  God! Thou art more friend to me than I am to myself. I
+                  dedicate myself to Thee, O Lord.
+                </p>
+                <p className="text-sm font-bold">~Abdu’l-Baha~</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ====golden-rule==== */}
+        <div
+          id="golden"
+          className="bg-[linear-gradient(to_right_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/unity3.jpg')] font-serif"
+          style={{
+            // backgroundImage:
+            //   "linear-gradient(to_right_bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(/zz.jpg)",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="px-8 lg:px-24 xl:px-44 py-12">
+            <h1 className="font-bold text-2xl lg:text-4xl text-center drop-shadow-lg font-serif text-white">
+              THE GOLDEN RULE
+            </h1>
+            <p className="hidden lg:block text-center text-white">
+              …the peoples of the world, of whatever race or religion, derive
+              their inspiration from one heavenly Source, <br></br> and are the
+              subjects of one God.{" "}
+              <span className="font-bold">~Baha'u'llah</span>
             </p>
-            <p className='text-sm font-bold'>~Baha’u’llah~</p>             
+            <p className="font-semibold text-center text-sm lg:text-lg lg:hidden text-white">
+              …the peoples of the world, of whatever race or religion, derive
+              their inspiration from one heavenly Source,and are the subjects of
+              one God. <span className="font-bold">~Baha'u'llah</span>
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4">
+              <div className="lg:h-44 p-4 text-center border-b-4 border-b-blue-600 flex items-center flex-col bg-white gap-2">
+                <Image
+                  src="/PngItem_455385.png"
+                  alt="Vercel Logo"
+                  className="w-6"
+                  height={20}
+                  width={500}
+                  priority
+                />
+                <div className="flex justify-center items-center gap-4">
+                  <h1 className="font-bold text-xl font-serif">Islam</h1>
+                </div>
+                <p className="text-sm">
+                  None of you truly believes until he loves for his brother what
+                  he loves for himself.
+                </p>
+              </div>
+
+              <div className="lg:h-44 p-4 text-center border-b-4 border-b-blue-600 flex items-center flex-col bg-white gap-2">
+                <Image
+                  src="/PngItem_4219473.png"
+                  alt="Vercel Logo"
+                  className="w-8"
+                  height={20}
+                  width={500}
+                  priority
+                />
+                <div className="flex justify-center items-center gap-4">
+                  <h1 className="font-bold text-xl font-serif">Baháʼí Faith</h1>
+                </div>
+                <p className="text-sm">
+                  And if thine eyes be turned towards justice, choose thou for
+                  thy neighbour that which thou choosest for thyself.
+                </p>
+              </div>
+
+              <div className="lg:h-44 p-4 text-center border-b-4 border-b-blue-600 flex items-center flex-col bg-white gap-2">
+                <Image
+                  src="/5a3843e02c6312.0853168115136368321818.png"
+                  alt="Vercel Logo"
+                  className="w-6"
+                  height={20}
+                  width={500}
+                  priority
+                />
+                <div className="flex justify-center items-center gap-4">
+                  <h1 className="font-bold text-xl font-serif">Christianity</h1>
+                </div>
+                <p className="text-sm">
+                  And as ye would that men should do to you, do ye also to them
+                  likewise.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 mt-6 gap-4 lg:px-40 xl:px-52">
+              <div className="lg:h-56 p-4 text-center border-b-4 border-b-blue-600 flex items-center flex-col bg-white gap-2">
+                <Image
+                  src="/kisspng-star-of-david-hexagram-judaism-symbol-black-star-5abe833585d662.7191815515224348695482 (1).png"
+                  alt="Vercel Logo"
+                  className="w-6"
+                  height={20}
+                  width={500}
+                  priority
+                />
+                <div className="flex justify-center items-center gap-4">
+                  <h1 className="font-bold text-xl font-serif">Judaism</h1>
+                </div>
+                <p className="text-sm">
+                  You shall not take vengeance or bear a grudge against your
+                  kinsfolk. Love your neighbor as yourself: I am the LORD.
+                </p>
+              </div>
+
+              <div className="lg:h-56 p-4 text-center border-b-4 border-b-blue-600 flex items-center flex-col bg-white gap-2">
+                <Image
+                  src="/5a213e5b970978.4594831415121280916187.png"
+                  alt="Vercel Logo"
+                  className="w-8"
+                  height={20}
+                  width={500}
+                  priority
+                />
+                <div className="flex justify-center items-center">
+                  <h1 className="font-bold text-xl font-serif">Hinduism</h1>
+                </div>
+                <p className="text-sm">
+                  One should never do that to another which one regards as
+                  injurious to one’s own self. This, in brief, is the rule of
+                  dharma. Other behavior is due to selfish desires.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4">
+              <div className="lg:h-44 p-4 text-center border-b-4 border-b-blue-600 flex items-center flex-col bg-white gap-2">
+                <Image
+                  src="/5a1bf960d652f7.4980512315117827528779.png"
+                  alt="Vercel Logo"
+                  className="w-6"
+                  height={20}
+                  width={500}
+                  priority
+                />
+                <div className="flex justify-center items-center gap-4">
+                  <h1 className="font-bold text-xl font-serif">Buddhism</h1>
+                </div>
+                <p className="text-sm">
+                  Hurt not others in ways that you yourself would find hurtful.
+                </p>
+              </div>
+
+              <div className="lg:h-44 p-4 text-center border-b-4 border-b-blue-600 flex items-center flex-col bg-white gap-2">
+                <Image
+                  src="/kisspng-avesta-zoroastrianism-faravahar-symbol-fravashi-judaism-5ab8cbccdbeb77.3163822215220602369008.png"
+                  alt="Vercel Logo"
+                  className="w-6"
+                  height={20}
+                  width={500}
+                  priority
+                />
+                <div className="flex justify-center items-center gap-4">
+                  <h1 className="font-bold text-xl font-serif">
+                    Zoroastrianism
+                  </h1>
+                </div>
+                <p className="text-sm">
+                  Do not do unto others whatever is injurious to yourself.
+                </p>
+              </div>
+
+              <div className="lg:h-44 p-4 text-center border-b-4 border-b-blue-600 flex items-center flex-col bg-white gap-2">
+                <Image
+                  src="/5a2273698ada49.8172957215122072095688.png"
+                  alt="Vercel Logo"
+                  className="w-6"
+                  height={20}
+                  width={500}
+                  priority
+                />
+                <div className="flex justify-center items-center gap-4">
+                  <h1 className="font-bold text-xl font-serif">Sikhism</h1>
+                </div>
+                <p className="text-sm font-serif">
+                  Precious like jewels are the minds of all. To hurt them is not
+                  at all good. If thou desirest thy Beloved, then hurt thou not
+                  anyone's heart.
+                </p>
+              </div>
+            </div>
           </div>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-blue-200 duration-300'>
-            <p className='text-sm lg:text-base'>O my God! O my God! Unite the hearts of Thy servants, and reveal to them Thy great purpose. May they folow Thy commandments and abide in Thy law. Help them, O God, in their endeavor, and grant them strength to serve Thee. O God! Leave them not to themselves, but guide their steps by the light of Thy knowledge, and cheer their hearts by Thy love. Verily, Thou art their Helper and their Lord.</p>           
-            <p className='text-sm font-bold'>~Baha’u’llah~</p>
-          </div>
+          {/* <p className='font-semibold text-center pt-4'>God sends manifestations to us from age to age to guide mankind with respect to what mankind needs for that particular age. <br></br> For this age (age of maturity for mankind) God has sent Baha’u’llah to guide mankind towards the right path, fulfilling the prophesies of past religions.</p> */}
         </div>
 
-        <div className='grid grid-cols-1 lg:grid-cols-2 mt-6 gap-4 lg:px-40 xl:px-52'>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-purple-200 duration-300'>
-            <p className='text-sm lg:text-base'>Thy Name is my healing, O my God, and remembrance of Thee is my remedy. Nearness to Thee is my hope, and love for Thee is my companion. Thy mercy to me is my healing and my succor in both this world and the world to come. Thou Verily, art the All-Bountiful, the All-Knowing, the All-Wise.</p>
-            <p className='text-sm font-bold'>~Baha’u’llah~</p>   
-          </div>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-green-200 duration-300'>
-            <p className='text-sm lg:text-base'>I adjure Thee by Thy might, Omy God! Let no harm beset me in times of tests, and in moments of heedlessness, guide my steps aright through Thine inspiration. Thou art God, potent art thou to do what Thou desirest. No one can withstand Thy will of thwart Thy Purpose.</p>
-            <p className='text-sm font-bold'>~The Bab~</p>
-          </div>
-        </div>
-
-        <div className='grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4'>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-blue-200 duration-300'>
-            <p className='text-sm lg:text-base'>I beg Thee to forgive me, O my Lord, for every mention but the mention of Thee, and for every praise but the praise of Thee, and for every delight but delight in Thy nearness, and for every pleasure but the pleasure of communion with Thee, and for every joy but the joy of Thy love and Thy good-pleasure, and for all things pertaining unto me which bear no relationship unto Thee, O Thou Who art the Lord of lords, He Who provideth the means and unlocketh the doors.</p>
-            <p className='text-sm font-bold'>~The Bab~</p>        
-          </div>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-red-200 duration-300'>
-            <p className='text-sm lg:text-base'>O Lord my God! Assist Thy loved ones to be firm in Thy Faith, to walk in Thy ways, to be steadfast in Thy Cause. Give them Thy grace to withstand the onslaught of self and passion, to follow the light of divine guidiane. Thou art the Powerful, the Gracious, the Self-Subsisting, the Bestower, the Compassionate, the Almighty, the All-Bountiful.</p>
-            <p className='text-sm font-bold'>~Abdu’l-Baha~</p>
-          </div>
-          <div className='bg-white shadow-lg shadow-slate-300 lg:h-auto p-8 border-8 border-dotted border-yellow-200 duration-300'>
-            <p className='text-sm lg:text-base'>O God! Refresh and gladden my spirit. Purify my heart. Illumine my powers. I lay all my affairs in thy hand. Thou art my Guide and my Refuge. I will no longer be sorrowful and grieved; I will be a happy and joyful being. O God! I will no longer be full of anxiety, nor will I let trouble harass me. I will be not dwell on the unpleasant things of life.<br></br>
-            O God! Thou art more friend to me than I am to myself. I dedicate myself to Thee, O Lord.</p>
-            <p className='text-sm font-bold'>~Abdu’l-Baha~</p>
-          </div>
-        </div>
-      </div>     
-
-      {/* ====golden-rule==== */}
-      <div id='golden' className='' 
-       style={{
-        backgroundImage: 'url(/zz.jpg)',
-        backgroundSize: "cover",
-        backgroundRepeat:"no-repeat"
-      }} 
-      >
-          <div className='px-8 lg:px-24 xl:px-44 py-12'>
-            <h1 className="font-bold text-2xl lg:text-4xl text-center drop-shadow-lg font-serif text-white">THE GOLDEN RULE</h1>
-            <p className='hidden lg:block font-semibold text-center text-white'>…the peoples of the world, of whatever race or religion, derive their inspiration from one heavenly Source, <br></br> and are the subjects of one God.  <span className='font-bold'>~Baha'u'llah</span></p>
-            <p className='font-semibold text-center text-sm lg:text-lg lg:hidden text-white'>…the peoples of the world, of whatever race or religion, derive their inspiration from one heavenly Source,and are the subjects of one God.  <span className='font-bold'>~Baha'u'llah</span></p>
-        
-            <div className='grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4'>
-              <div className='lg:h-44 xl:h-36 p-4 text-center rounded-md font-semibold'
-                style={{
-                  background: "#e3f2fd"
-                }} 
-              >
-                  <div className='flex justify-center items-center gap-4'>
-                    <Image
-                      src="/PngItem_455385.png"
-                      alt="Vercel Logo"
-                      className='w-6'
-                      height={20}
-                      width={500}
-                      priority
-                    />                           
-                    <h1 className='font-bold text-xl font-serif'>Islam</h1>
-                  </div>
-                  <p className='text-sm xl:text-base'>None of you truly believes until he loves for his brother what he loves for himself.</p>
+        {/* ====contact-us==== */}
+        <div
+          id="contact"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:h-screen px-8 lg:px-24 xl:px-44 py-12"
+        >
+          {/* contact-form */}
+          <div>
+            <h1 className="text-2xl lg:text-4xl font-bold mb-2">Contact Us</h1>
+            <form className="bg-blue-50 p-8 lg:p-12">
+              <div className="mb-4">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="bg-blue-50 border-b border-b-black focus:border-blue-300 outline-none w-full p-2"
+                />
               </div>
-
-              <div className='lg:h-44 xl:h-36 p-4 text-center rounded-md font-semibold'
-                style={{
-                  background:"#bbdefb"
-                }} 
-              >
-                  <div className='flex justify-center items-center gap-4'>
-                    <Image
-                      src="/PngItem_4219473.png"
-                      alt="Vercel Logo"
-                      className='w-8'
-                      height={20}
-                      width={500}
-                      priority
-                    />                           
-                    <h1 className='font-bold text-xl font-serif'>Baháʼí Faith</h1>           
-                  </div>
-                  <p className='text-sm xl:text-base'>And if thine eyes be turned towards justice, choose thou for thy neighbour that which thou choosest for thyself.</p>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  placeholder="E-mail"
+                  className="bg-blue-50 border-b border-b-black focus:border-blue-300 outline-none w-full p-2"
+                />
               </div>
-
-              <div className='lg:h-44 xl:h-36 p-4 text-center rounded-md font-semibold'
-                 style={{
-                  background:"#90caf9"
-                }} 
-              >
-                <div className='flex justify-center items-center gap-4'>
-                    <Image
-                      src="/5a3843e02c6312.0853168115136368321818.png"
-                      alt="Vercel Logo"
-                      className='w-6'
-                      height={20}
-                      width={500}
-                      priority
-                    />                           
-                    <h1 className='font-bold text-xl font-serif'>Christianity</h1>           
-                  </div>
-                  <p className='text-sm xl:text-base'>And as ye would that men should do to you, do ye also to them likewise.</p>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  placeholder="Phone number"
+                  className="bg-blue-50 border-b border-b-black focus:border-blue-300 outline-none w-full p-2"
+                />
               </div>
-            </div>
-
-            <div className='grid grid-cols-1 lg:grid-cols-2 mt-6 gap-4 lg:px-40 xl:px-52'>
-              <div className='lg:h-44 xl:h-36 p-4 text-center rounded-md font-semibold'
-                 style={{
-                  background: '#64b5f6',
-                }} 
-              >
-                <div className='flex justify-center items-center gap-4'>
-                    <Image
-                      src="/kisspng-star-of-david-hexagram-judaism-symbol-black-star-5abe833585d662.7191815515224348695482 (1).png"
-                      alt="Vercel Logo"
-                      className='w-6'
-                      height={20}
-                      width={500}
-                      priority
-                    />                           
-                    <h1 className='font-bold text-xl font-serif'>Judaism</h1>           
-                  </div>
-                  <p className='text-sm xl:text-base'>You shall not take vengeance or bear a grudge against your kinsfolk. Love your neighbor as yourself: I am the LORD.</p>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  placeholder="Location"
+                  className="bg-blue-50 border-b border-b-black focus:border-blue-300 outline-none w-full p-2"
+                />
               </div>
-
-              <div className='lg:h-44 xl:h-36 p-4 text-center rounded-md font-semibold'
-                 style={{
-                  background: '#ade8f4',
-                }} 
-              >
-                <div className='flex justify-center items-center'>
-                    <Image
-                      src="/5a213e5b970978.4594831415121280916187.png"
-                      alt="Vercel Logo"
-                      className='w-8'
-                      height={20}
-                      width={500}
-                      priority
-                    />                           
-                    <h1 className='font-bold text-xl font-serif'>Hinduism</h1>           
-                  </div>
-                  <p className='text-sm xl:text-base'>One should never do that to another which one regards as injurious to one’s own self. This, in brief, is the rule of dharma. Other behavior is due to selfish desires.</p>
+              <div className="mb-4">
+                <textarea
+                  placeholder="How did you find out about the Baha`i` Faith"
+                  className="bg-blue-50 border border-black focus:border-blue-300 outline-none w-full mt-4 p-2 text-sm lg:text-lg"
+                ></textarea>
               </div>
-            </div>
-
-            <div className='grid grid-cols-1 lg:grid-cols-3 mt-6 gap-4'>
-              <div className='lg:h-44 xl:h-36 p-4 text-center rounded-md font-semibold'
-                 style={{
-                  background: '#bbdef9',
-                }} 
-              >
-                <div className='flex justify-center items-center gap-4'>
-                    <Image
-                      src="/5a1bf960d652f7.4980512315117827528779.png"
-                      alt="Vercel Logo"
-                      className='w-6'
-                      height={20}
-                      width={500}
-                      priority
-                    />                           
-                    <h1 className='font-bold text-xl font-serif'>Buddhism</h1>           
-                  </div>
-                  <p className='text-sm lg:text-base'>Hurt not others in ways that you yourself would find hurtful.</p>
-              </div>
-
-              <div className='lg:h-44 xl:h-36 p-4 text-center rounded-md font-semibold'
-                 style={{
-                  background: '#e3f2fd',
-                }} 
-              >
-              <div className='flex justify-center items-center gap-4'>
-                    <Image
-                      src="/kisspng-avesta-zoroastrianism-faravahar-symbol-fravashi-judaism-5ab8cbccdbeb77.3163822215220602369008.png"
-                      alt="Vercel Logo"
-                      className='w-6'
-                      height={20}
-                      width={500}
-                      priority
-                    />                           
-                    <h1 className='font-bold text-xl font-serif'>Zoroastrianism</h1>           
-                  </div>
-                  <p className='text-sm xl:text-base'>Do not do unto others whatever is injurious to yourself.</p>
-              </div>
-
-              <div className='lg:h-44 xl:h-36 p-4 text-center rounded-md font-semibold'
-                 style={{
-                  background: '#bbdefb',
-                }} 
-              >
-              <div className='flex justify-center items-center gap-4'>
-                    <Image
-                      src="/5a2273698ada49.8172957215122072095688.png"
-                      alt="Vercel Logo"
-                      className='w-6'
-                      height={20}
-                      width={500}
-                      priority
-                    />                           
-                    <h1 className='font-bold text-xl font-serif'>Sikhism</h1>           
-                  </div>
-                  <p className='text-sm lg:text-base'>Precious like jewels are the minds of all. To hurt them is not at all good. If thou desirest thy Beloved, then hurt thou not anyone's heart.</p>
-              </div>
-            </div>
-          </div>
-        {/* <p className='font-semibold text-center pt-4'>God sends manifestations to us from age to age to guide mankind with respect to what mankind needs for that particular age. <br></br> For this age (age of maturity for mankind) God has sent Baha’u’llah to guide mankind towards the right path, fulfilling the prophesies of past religions.</p> */}
-      </div>
-
-      {/* ====contact-us==== */}
-      <div id='contact' className='grid grid-cols-1 lg:grid-cols-2 gap-8 xl:h-screen px-8 lg:px-24 xl:px-44 py-12'>
-        {/* contact-form */}
-        <div>
-          <h1 className='text-2xl lg:text-4xl font-bold mb-2'>Contact Us</h1>
-          <form  className='bg-blue-50 p-8 lg:p-12'>
-            <div className='mb-4'>
-              <input type="text" placeholder='Name' className='bg-blue-50 border-b border-b-black focus:border-blue-300 outline-none w-full p-2'/>
-            </div>
-            <div className='mb-4'>
-              <input type="text" placeholder='E-mail' className='bg-blue-50 border-b border-b-black focus:border-blue-300 outline-none w-full p-2'/>
-            </div>
-            <div className='mb-4'>
-              <input type="text" placeholder='Phone number' className='bg-blue-50 border-b border-b-black focus:border-blue-300 outline-none w-full p-2'/>
-            </div>
-            <div className='mb-4'>
-              <input type="text" placeholder='Location' className='bg-blue-50 border-b border-b-black focus:border-blue-300 outline-none w-full p-2'/>
-            </div>
-            <div className='mb-4'>
-              <textarea placeholder='How did you find out about the Baha`i` Faith' className='bg-blue-50 border border-black focus:border-blue-300 outline-none w-full mt-4 p-2 text-sm lg:text-lg'></textarea>
-            </div>
-            <button className="bg-indigo-700 px-4 lg:px-24 py-2 rounded-lg font-semibold text-white text-sm lg:text-base hover:bg-indigo-500">
-               Submit
+              <button className="bg-indigo-700 px-4 lg:px-24 py-2 rounded-lg font-semibold text-white text-sm lg:text-base hover:bg-indigo-500">
+                Submit
               </button>
-          </form>
-        </div>
-        <div className=''>
-          <h1 className='text-2xl lg:text-4xl font-bold mb-2'>Visit Us</h1>
-          <div className='grid grid-cols-2 gap-8 text-sm lg:text-base'>
-            <div>
-              <h1 className='font-bold text-md'>National Baha`i` Center</h1>
-              <p>No 9 Wuse Street Abuja</p>
-              <div className='lg:flex justify-between items-center'>
-                <p>09189209192</p>
-                <p>09123029304</p>
+            </form>
+          </div>
+          <div className="">
+            <h1 className="text-2xl lg:text-4xl font-bold mb-2">Visit Us</h1>
+            <div className="grid grid-cols-2 gap-8 text-sm lg:text-base">
+              <div>
+                <h1 className="font-bold text-md">National Baha`i` Center</h1>
+                <p>No 9 Wuse Street Abuja</p>
+                <div className="lg:flex justify-between items-center">
+                  <p>09189209192</p>
+                  <p>09123029304</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h1 className='font-bold text-md'>Lagos Center</h1>
-              <p>Igando Lekki Aba</p>
-              <div className='lg:flex justify-between items-center'>
-                <p>09189209192</p>
-                <p>09123029304</p>
+              <div>
+                <h1 className="font-bold text-md">Lagos Center</h1>
+                <p>Igando Lekki Aba</p>
+                <div className="lg:flex justify-between items-center">
+                  <p>09189209192</p>
+                  <p>09123029304</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h1 className='font-bold text-md'>Warri Center</h1>
-              <p>No. 9 rubber plantation Warri</p>
-              <div className='lg:flex justify-between items-center'>
-                <p>08054920003</p>
-                <p>0805492842</p>
+              <div>
+                <h1 className="font-bold text-md">Warri Center</h1>
+                <p>No. 9 rubber plantation Warri</p>
+                <div className="lg:flex justify-between items-center">
+                  <p>08054920003</p>
+                  <p>0805492842</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h1 className='font-bold text-md'>Enugu Center</h1>
-              <p>Igando Lekki Aba</p>
-              <div className='lg:flex justify-between items-center'>
-                <p>09189209192</p>
-                <p>09123029304</p>
+              <div>
+                <h1 className="font-bold text-md">Enugu Center</h1>
+                <p>Igando Lekki Aba</p>
+                <div className="lg:flex justify-between items-center">
+                  <p>09189209192</p>
+                  <p>09123029304</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h1 className='font-bold text-md'>Calabar Center</h1>
-              <p>Igando Lekki Aba</p>
-              <div className='lg:flex justify-between items-center'>
-                <p>09189209192</p>
-                <p>09123029304</p>
+              <div>
+                <h1 className="font-bold text-md">Calabar Center</h1>
+                <p>Igando Lekki Aba</p>
+                <div className="lg:flex justify-between items-center">
+                  <p>09189209192</p>
+                  <p>09123029304</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h1 className='font-bold text-md'>Oghara Center</h1>
-              <p>Igando Lekki Aba</p>
-              <div className='lg:flex justify-between items-center'>
-                <p>09189209192</p>
-                <p>09123029304</p>
+              <div>
+                <h1 className="font-bold text-md">Oghara Center</h1>
+                <p>Igando Lekki Aba</p>
+                <div className="lg:flex justify-between items-center">
+                  <p>09189209192</p>
+                  <p>09123029304</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h1 className='font-bold text-md'>Sapele Center</h1>
-              <p>Igando Lekki Aba</p>
-              <div className='lg:flex justify-between items-center'>
-                <p>09189209192</p>
-                <p>09123029304</p>
+              <div>
+                <h1 className="font-bold text-md">Sapele Center</h1>
+                <p>Igando Lekki Aba</p>
+                <div className="lg:flex justify-between items-center">
+                  <p>09189209192</p>
+                  <p>09123029304</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h1 className='font-bold text-md'>Nassarawa Center</h1>
-              <p>Igando Lekki Aba</p>
-              <div className='lg:flex justify-between items-center'>
-                <p>09189209192</p>
-                <p>09123029304</p>
+              <div>
+                <h1 className="font-bold text-md">Nassarawa Center</h1>
+                <p>Igando Lekki Aba</p>
+                <div className="lg:flex justify-between items-center">
+                  <p>09189209192</p>
+                  <p>09123029304</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h1 className='font-bold text-md'>Uyo Center</h1>
-              <p>Igando Lekki Aba</p>
-              <div className='lg:flex justify-between items-center'>
-                <p>09189209192</p>
-                <p>09123029304</p>
+              <div>
+                <h1 className="font-bold text-md">Uyo Center</h1>
+                <p>Igando Lekki Aba</p>
+                <div className="lg:flex justify-between items-center">
+                  <p>09189209192</p>
+                  <p>09123029304</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h1 className='font-bold text-md'>Gidenye Center</h1>
-              <p>Igando Lekki Aba</p>
-              <div className='lg:flex justify-between items-center'>
-                <p>09189209192</p>
-                <p>09123029304</p>
+              <div>
+                <h1 className="font-bold text-md">Gidenye Center</h1>
+                <p>Igando Lekki Aba</p>
+                <div className="lg:flex justify-between items-center">
+                  <p>09189209192</p>
+                  <p>09123029304</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* ====footer==== */} 
-      <footer className="bg-black dark:bg-gray-900">
+        {/* ====footer==== */}
+        <footer className="bg-black dark:bg-gray-900">
           <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-24">
-              <div className="md:flex md:justify-between">
-                <div className="mb-6 md:mb-0">
-                    <a href="/" className="flex items-center gap-2">
-                    <Image
-                      src="/PngItem_4219473.png"
-                      alt="Vercel Logo"
-                      className='w-8'
-                      height={20}
-                      width={500}
-                      priority
-                    />   
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Baháʼí Faith</span>
-                    </a>
-                    <p className='text-white text-sm'>God is one; Man is one; Religion is one</p>
+            <div className="md:flex md:justify-between">
+              <div className="mb-6 md:mb-0">
+                <a href="/" className="flex items-center gap-2">
+                  <Image
+                    src="/PngItem_4219473.png"
+                    alt="Vercel Logo"
+                    className="w-8"
+                    height={20}
+                    width={500}
+                    priority
+                  />
+                  <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
+                    Baháʼí Faith
+                  </span>
+                </a>
+                <p className="text-white text-sm">
+                  God is one; Man is one; Religion is one
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 text-sm xl:test-base">
+                <div>
+                  <h2 className="mb-6 text-sm font-semibold text-gray-200 uppercase">
+                    More
+                  </h2>
+                  <ul className="text-gray-600 dark:text-gray-400 font-medium">
+                    <li className="mb-4">
+                      <a href="#teachings" className="hover:underline">
+                        Baha`i` Teachings
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#prayers" className="hover:underline">
+                        Baha`i` Prayers
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-                <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 text-sm xl:test-base">
-                    <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-200 uppercase">More</h2>
-                        <ul className="text-gray-600 dark:text-gray-400 font-medium">
-                            <li className="mb-4">
-                                <a href="#teachings" className="hover:underline">Baha`i` Teachings</a>
-                            </li>
-                            <li>
-                                <a href="#prayers" className="hover:underline">Baha`i` Prayers</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-200 uppercase dark:text-white">Follow us</h2>
-                        <ul className="text-gray-600 dark:text-gray-400 font-medium">
-                            <li className="mb-4">
-                                <a href="#" className="hover:underline ">Facebook</a>
-                            </li>
-                            <li>
-                                <a href="#" className="hover:underline">Instagram</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-200 uppercase dark:text-white">Legal</h2>
-                        <ul className="text-gray-600 dark:text-gray-400 font-medium">
-                            <li className="mb-4">
-                                <a href="#" className="hover:underline">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a href="#" className="hover:underline">Terms &amp; Conditions</a>
-                            </li>
-                        </ul>
-                    </div>
+                <div>
+                  <h2 className="mb-6 text-sm font-semibold text-gray-200 uppercase dark:text-white">
+                    Follow us
+                  </h2>
+                  <ul className="text-gray-600 dark:text-gray-400 font-medium">
+                    <li className="mb-4">
+                      <a href="#" className="hover:underline ">
+                        Facebook
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:underline">
+                        Instagram
+                      </a>
+                    </li>
+                  </ul>
                 </div>
+                <div>
+                  <h2 className="mb-6 text-sm font-semibold text-gray-200 uppercase dark:text-white">
+                    Legal
+                  </h2>
+                  <ul className="text-gray-600 dark:text-gray-400 font-medium">
+                    <li className="mb-4">
+                      <a href="#" className="hover:underline">
+                        Privacy Policy
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="hover:underline">
+                        Terms &amp; Conditions
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
             <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div className="sm:flex sm:items-center sm:justify-between">
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" className="hover:underline">Baháʼí Faith™</a>. All Rights Reserved.
-                </span>
-                <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-                    <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" /></svg>
-                        <span className="sr-only">Facebook page</span>
-                    </a>
-                    <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" /></svg>
-                        <span className="sr-only">Instagram page</span>
-                    </a>
-                    {/* <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                © 2023{" "}
+                <a href="/" className="hover:underline">
+                  Baháʼí Faith™
+                </a>
+                . All Rights Reserved.
+              </span>
+              <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+                <a
+                  href="#"
+                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="sr-only">Facebook page</span>
+                </a>
+                <a
+                  href="#"
+                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="sr-only">Instagram page</span>
+                </a>
+                {/* <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
                         <span className="sr-only">Twitter page</span>
                     </a> */}
-                    {/* <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                {/* <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" /></svg>
                         <span className="sr-only">GitHub account</span>
                     </a> */}
-                    {/* <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                {/* <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clipRule="evenodd" /></svg>
                         <span className="sr-only">Dribbble account</span>
                     </a> */}
-                </div>
+              </div>
             </div>
           </div>
-      </footer>
-
+        </footer>
 
         {/* <div className={styles.description}>
           <p>
@@ -901,5 +1250,5 @@ export default function Home() {
         </div> */}
       </main>
     </>
-  )
+  );
 }
